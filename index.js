@@ -18,6 +18,8 @@ const dbURI = 'mongodb+srv://Sadeeq:SadeeqDB@cluster0.nzadu.mongodb.net/NextAuth
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
   .then((result) =>{ 
     console.log("server started")
+app.listen(process.env.PORT || 3000)
+
   })
   .catch((err) => console.log(err));
 
@@ -27,4 +29,3 @@ app.get('/', (req, res) => res.render('home'));
 app.get('/smoothies', requireAuth, (req, res) => res.render('smoothies'));
 app.use(authRoutes)
 
-app.listen(5000)
