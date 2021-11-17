@@ -17,6 +17,7 @@ app.set('view engine', 'ejs');
 const dbURI = 'mongodb+srv://Sadeeq:SadeeqDB@cluster0.nzadu.mongodb.net/NextAuthDB';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
   .then((result) =>{ 
+    console.log("server started")
     app.listen(3000)
   })
   .catch((err) => console.log(err));

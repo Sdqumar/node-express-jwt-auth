@@ -17,11 +17,7 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-//fire a function after doc saved to db
-// userSchema.post('save', function (doc,next){
-//     console.log('new user was created', doc)
-//     next()
-// })
+
 //fire a function before doc saved to db
 userSchema.pre('save', async function (next){
     this.password = await argon2.hash(this.password);
